@@ -1,0 +1,62 @@
+<div class="container mt-5">
+
+  <div class="btn btn-outline-dark"  routerLink="/clients" >Clients </div>
+
+  <p></p>
+  <div class="form-group">
+    <input type="text" class="form-control lol" placeholder="Cherchez un nom ..." [(ngModel)]="filterTerm">
+  </div>
+
+  <table class="table table-bordered">
+    <thead class="thead-light">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Prenom</th>
+      <th scope="col">Nom </th>
+      <th scope="col">Sexe</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Adulte</th>
+
+
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let c of clients | filter:filterTerm  |paginate: {itemsPerPage:5,currentPage:p};">
+      <td>{{c.id_client}}</td>
+      <td>{{c.prenom}}</td>
+      <td>{{c.nom}}</td>
+      <td>{{c.sexe}}</td>
+      <td>{{c.email}}</td>
+      <td>{{c.phone}}</td>
+      <td>{{c.adult}}</td>
+
+      <td>
+
+        <button mat-mini-fab color="warn" aria-label="Example icon button with a delete icon" (click)="onGetres(c.id)">
+          <mat-icon>library_books</mat-icon>
+        </button>
+
+      </td>
+    </tr>
+    </tbody>
+
+    <div class="clearfix">
+      <pagination-controls (pageChange)="p = $event"
+                           previousLabel="Précede nt"
+                           nextLabel="Suivant"
+                           responsive="true"
+                           maxSize="9"
+                           directionLinks="true"
+                           autoHide="true"
+                           responsive="true"
+                           screenReaderPaginationLabel="Pagination"
+                           screenReaderPageLabel="page"
+                           screenReaderCurrentLabel="You're on page">
+      </pagination-controls>
+    </div>
+  </table>
+
+
+</div>

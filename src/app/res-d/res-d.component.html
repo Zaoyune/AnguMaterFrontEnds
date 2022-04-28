@@ -1,0 +1,116 @@
+
+<!--<mat-card class="test">-->
+<!--<form class="example-form">-->
+<!--  <table class="example-full-width" cellspacing="0"><tr>-->
+<!--    <td><mat-form-field class="example-full-width" appearance="outline">-->
+<!--      <mat-label>Date debut </mat-label>-->
+<!--      <input matInput  type="text" name="date_debut" [(ngModel)]="reservation.date_debut" ngModel  readonly />-->
+<!--    </mat-form-field></td>-->
+<!--    <td><mat-form-field class="example-full-width" appearance="outline">-->
+<!--      <mat-label>Date fin</mat-label>-->
+<!--      <input matInput  type="text" name="date_fin" [(ngModel)]="reservation.date_fin" ngModel  readonly />-->
+<!--    </mat-form-field></td>-->
+<!--  </tr></table>-->
+<!--<p></p>-->
+<!--  <td><mat-form-field class="example-full-width" appearance="outline">-->
+<!--    <mat-label>Prix</mat-label>-->
+<!--    <input matInput  type="text" name="price" [(ngModel)]="reservation.price" ngModel  readonly />-->
+<!--  </mat-form-field></td>-->
+<!--  <td><mat-form-field class="example-full-width" appearance="outline">-->
+<!--    <mat-label>Chambre</mat-label>-->
+<!--    <input matInput  type="text" name="chambre" [(ngModel)]="reservation.chambre.numChambre" ngModel  readonly />-->
+<!--  </mat-form-field></td>-->
+<!--  <td><mat-form-field class="example-full-width" appearance="outline">-->
+<!--    <mat-label>Client</mat-label>-->
+<!--    <input matInput  type="text" name="client" [(ngModel)]="reservation.client.prenom" ngModel  readonly />-->
+<!--  </mat-form-field></td>-->
+<!--  <td><mat-form-field class="example-full-width" appearance="outline">-->
+<!--    <mat-label>Adult</mat-label>-->
+<!--    <input matInput  type="text" name="client1" [(ngModel)]="reservation.client.adult" ngModel  readonly />-->
+<!--  </mat-form-field></td>-->
+
+
+<!--</form>-->
+
+<!--</mat-card>-->
+<mat-card>
+<div class="form-body">
+  <div class="row">
+    <div class="form-holder">
+      <div class="form-content">
+        <div class="form-items">
+          <h3>Details de la Resérvation</h3>
+          <p></p>
+
+          <form class="requires-validation" >
+
+            <div class="col-md-12">
+              <label class="cc">Date Debut</label>
+                 <input   type="text" name="date_debut" [(ngModel)]="reservation.date_debut" ngModel  readonly />
+             </div>
+            <p></p>
+
+            <label class="cc">Date Fin</label>
+
+            <div class="col-md-12">
+              <input   type="text" name="date_fin" [(ngModel)]="reservation.date_fin" ngModel  readonly />
+             </div>
+            <p></p>
+
+            <label class="cc">Le prix</label>
+
+            <div class="col-md-12">
+              <input   type="text" name="price" [(ngModel)]="reservation.price" ngModel  readonly />
+             </div>
+            <p></p>
+            <label class="cc">Numero Chambre</label>
+
+            <div class="col-md-12">
+              <input   type="text" name="chambre" [(ngModel)]="reservation.chambre.numChambre" ngModel  readonly />
+             </div>
+            <p></p>
+
+            <label class="cc">Client</label>
+
+            <div class="col-md-12">
+              <input   type="text" name="client" [(ngModel)]="reservation.client.prenom" ngModel  readonly />
+             </div>
+
+
+
+
+
+
+
+
+
+
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</mat-card>
+<script>
+
+
+  (function () {
+    'use strict'
+    const forms = document.querySelectorAll('.requires-validation')
+    Array.from(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+
+          form.classList.add('was-validated')
+        }, false)
+      })
+  })()
+
+</script>

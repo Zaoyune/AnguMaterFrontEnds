@@ -1,0 +1,47 @@
+.clearfix {
+  position: relative;
+  right: 35%;
+  left: 35%;
+  font-size: 14px;
+  border-color: black;
+  border-radius: 20px !important;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+
+.ngx-pagination {
+  padding-left: 0px !important;
+}
+
+.ngx-pagination .current,
+.btn-info {
+  background: #17a2b8 !important;
+  border: transparent !important;
+  border-radius: 20px !important;
+}
+
+.ngx-pagination .current:hover {
+  background: #17a2b8 !important;
+  border-radius: 20px !important;
+  border: transparent !important;}
+
+.modal-body{
+  border-radius: 20px;
+}
+.lol{
+  border: 2px solid black;
+  border-radius: 15px;
+}
+table .btn{
+  margin: 2px;
+}
+.border{
+  padding: 10px;
+}
+.btn{
+  margin-right: 10px;
+}
+.fa {
+  margin-right: 10px;
+}

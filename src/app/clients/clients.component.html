@@ -1,0 +1,178 @@
+<div class="container mt-5">
+  <div class="btn btn-outline-dark" (click)="open(content) ">Ajouter Un Client</div>
+  <div class="btn btn-outline-dark"  routerLink="/adult" >Clients mineurs </div>
+
+  <p></p>
+  <div class="form-group">
+    <input type="text" class="form-control lol" placeholder="Cherchez un nom ..." [(ngModel)]="filterTerm">
+  </div>
+
+  <table class="table table-bordered">
+    <thead class="thead-light">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Prenom</th>
+      <th scope="col">Nom </th>
+      <th scope="col">Sexe</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Adulte</th>
+
+
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let c of clients | filter:filterTerm  |paginate: {itemsPerPage:5,currentPage:p};">
+      <td>{{c.id_client}}</td>
+      <td>{{c.prenom}}</td>
+      <td>{{c.nom}}</td>
+      <td>{{c.sexe}}</td>
+      <td>{{c.email}}</td>
+      <td>{{c.phone}}</td>
+      <td>{{c.adult}}</td>
+
+       <td>
+
+        <button mat-mini-fab color="warn" aria-label="Example icon button with a delete icon" (click)="onGetres(c.id)">
+          <mat-icon>library_books</mat-icon>
+        </button>
+
+      </td>
+    </tr>
+    </tbody>
+
+    <div class="clearfix">
+      <pagination-controls (pageChange)="p = $event"
+                           previousLabel="Précede nt"
+                           nextLabel="Suivant"
+                           responsive="true"
+                           maxSize="9"
+                           directionLinks="true"
+                           autoHide="true"
+                           responsive="true"
+                           screenReaderPaginationLabel="Pagination"
+                           screenReaderPageLabel="page"
+                           screenReaderCurrentLabel="You're on page">
+      </pagination-controls>
+    </div>
+  </table>
+
+
+</div>
+
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Ajouter Client</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+
+
+
+
+        <label for="prenom">Prenom </label>
+        <div class="input-group">
+          <input id="prenom" name="prenom" type="text" class="form-control" ngModel>
+        </div>
+
+        <label for="nom">Nom </label>
+        <div class="input-group">
+          <input id="nom"  name="nom" type="text" class="form-control" ngModel>
+        </div>
+
+
+
+
+      <label >Sexe </label>
+      <div class="input-group">
+
+       <input type="radio" value="male" name="sexe" ngModel> Male
+      <input type="radio" value="female" name="sexe" ngModel> Female
+      </div>
+
+
+
+      <label for="email">Email </label>
+      <div class="input-group">
+        <input id="email"  name="email" type="text" class="form-control" ngModel>
+      </div>
+
+
+      <label for="phone">Telephone </label>
+      <div class="input-group">
+        <input id="phone"  name="phone" type="text" class="form-control" ngModel>
+      </div>
+      <div class="card-group">
+        <label class="control-label">isAdult:</label>
+
+        <select  id="adult"   class="form-select" ngModel>
+          <option *ngFor="let adult of adults" [value]="adult.name">
+            {{adult.name}}
+          </option>
+        </select>
+
+      </div>
+  <p></p>
+      <div class="text-center">
+        <button data-dismiss="modal" class="btn btn-outline-dark">Ajouter</button>
+      </div>
+    </form>
+  </div>
+
+</ng-template>
+
+
+
+
+
+
+
+<ng-template #contentDetails let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title1">Reservation</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="date_fin">date_debut</label>
+        <div class="input-group">
+          <input id="dated" class="form-control" readonly >
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="date_fin">date_fin</label>
+        <div class="input-group">
+          <input id="datef" class="form-control" readonly >
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="price">price</label>
+        <div class="input-group">
+          <input id="prce" class="form-control" readonly >
+        </div>
+      </div>
+      <div class="form-group">
+        <label>chambre</label>
+        <div class="input-group">
+          <input id="num" class="form-control" readonly >
+        </div>
+      </div>
+      <div class="form-group">
+        <label> client</label>
+        <div class="input-group">
+          <input id="prn" class="form-control" readonly >
+        </div>
+      </div>
+    </form>
+  </div>
+
+</ng-template>
